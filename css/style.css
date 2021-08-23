@@ -429,6 +429,41 @@ footer h2{
 }
 
 @media screen and (min-width:1024px){
+  #header-logo{
+    width:15vw;
+    margin:12vw auto auto 12vw;
+  }
+
+  #header-bg-red-gold{
+    padding-top:6vw;
+  }
+
+  #header-bg-red-gold > p{
+    font-size: 1.5vw;
+    width:40vw;
+  }
+
+  .news-content{
+    margin-bottom:3vw;
+  }
+
+  .date{
+    font-size:1vw;
+  }
+
+  .content-headline{
+    font-size:2vw;
+  }
+
+  .btn{
+    margin-top:5vw;
+  }
+
+  #item1-bg,#item2-bg,#item3-bg{
+    width:25vw;
+    min-width:25vw;
+  }
+
   footer{
     margin-bottom:0;
   }
