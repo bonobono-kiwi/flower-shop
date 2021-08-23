@@ -110,6 +110,7 @@
     }
 
     setupDots();
+    updateSlides();
 
     function updateSlides(){
       item1Image.style.opacity =0;
