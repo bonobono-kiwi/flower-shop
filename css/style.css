@@ -428,7 +428,26 @@ footer h2{
   margin-top:1vw;
 }
 
+#header,#concept, #news,#items,#shop-info,#footer{
+  opacity:0;
+  transform:translateY(20px);
+  transition: opacity .5s, transform .5s;
+}
+
+#header.show, #concept.show, #news.show, #items.show, #shop-info.show, #footer.show{
+  opacity:1;
+  transform:none;
+}
+
+
+/* ここからPC用 */
 @media screen and (min-width:1024px){
+  #header,#concept, #news,#items,#shop-info,#footer{
+    opacity:1;
+    transform:none;
+  }
+
+
   #header-logo{
     width:15vw;
     margin:12vw auto auto 12vw;
