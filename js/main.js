@@ -18,6 +18,8 @@
   const item1Content = document.getElementById('item1-content');
   const item2Content = document.getElementById('item2-content');
   const item3Content = document.getElementById('item3-content');
+  const dots= [];
+  const slides = document.querySelectorAll('.item-theme');
   let currentIndex = 0;
 
   var itemsTopPosition = items.getBoundingClientRect().top;
@@ -84,9 +86,32 @@
     scrollSmartPhone();
 
     //カルーセルここから
-    next.addEventListener('click', ()=>{
-      currentIndex++;
-      wrap.style.transform = `translateX(${-100 * currentIndex}vw)`;
+    function setupDots(){
+      for(let i=0; i<slides.length; i++ ){
+        const button = document.createElement('button');
+        button.addEventListener('click', ()=>{
+          currentIndex= i;
+          moveSlides();
+          updateSlides();
+          updateDots();
+        });
+        dots.push(button);
+        document.getElementById('dots-wrap').appendChild(button);
+      }
+      dots[0].classList.add('current');
+    }
+
+    function updateDots(){
+      dots.forEach(dot=>{
+        dot.classList.remove('current');
+      });
+      dots[currentIndex].classList.add('current');
+
+    }
+
+    setupDots();
+
+    function updateSlides(){
       item1Image.style.opacity =0;
       item1Content.style.opacity = 0;
       item2Image.style.opacity = 0;
@@ -107,33 +132,30 @@
         wrap.style.transform = `translateX(${-100 * currentIndex}vw)`;
         item1Image.style.opacity =1;
         item1Content.style.opacity = 1;
+      }else if(currentIndex == -1){
+        currentIndex = 2;
+        wrap.style.transform = `translateX(${-100 * currentIndex}vw)`;
+        item3Image.style.opacity =1;
+        item3Content.style.opacity = 1;
       }
+    }
+
+    function moveSlides(){
+      wrap.style.transform = `translateX(${-100 * currentIndex}vw)`;
+    }
+
+    next.addEventListener('click', ()=>{
+      currentIndex++;
+      moveSlides();
+      updateSlides();
+      updateDots();
     });
   
     prev.addEventListener('click', ()=>{
       currentIndex--;
-      wrap.style.transform = `translateX(${-100 * currentIndex}vw)`;
-      item1Image.style.opacity =0;
-      item1Content.style.opacity = 0;
-      item2Image.style.opacity = 0;
-      item2Content.style.opacity =0;
-      item3Image.style.opacity = 0;
-      item3Content.style.opacity = 0;
-      if(currentIndex==0){
-        item1Image.style.opacity =1;
-        item1Content.style.opacity = 1;
-      }else if(currentIndex == 1){
-        item2Image.style.opacity = 1;
-        item2Content.style.opacity =1;
-      }else if(currentIndex ==2){
-        item3Image.style.opacity = 1;
-        item3Content.style.opacity = 1;
-      }else if(currentIndex == -1){
-        currentIndex = 2;
-        wrap.style.transform = `translateX(${-100 * currentIndex}vw)`;
-        item3Image.style.opacity = 1;
-        item3Content.style.opacity = 1;  
-      }
+      moveSlides();
+      updateSlides();
+      updateDots();
     });
     //カルーセルここまで
 

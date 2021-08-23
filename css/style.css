@@ -290,6 +290,34 @@ html{
   left:89vw;
 }
 
+#dots-wrap{
+  text-align:center;
+}
+
+#dots-wrap button{
+  border:none;
+  width:5vw;
+  height:5vw;
+  border-radius:50%;
+  cursor: pointer;
+  margin:1vw 1vw 2vw 1vw;
+  opacity: .3;
+}
+
+#dots-wrap button:nth-child(1){
+  background-color: #150C15;
+}
+#dots-wrap button:nth-child(2){
+  background-color: #9a1117;
+}
+#dots-wrap button:nth-child(3){
+  background-color: #917c50;
+}
+
+#dots-wrap button.current{
+  opacity:.8;
+}
+
 #items > p{
   width:65%;
   margin:0 auto;
@@ -546,7 +574,7 @@ footer h2{
     left:0;
     background:rgba(112,112,112,.5);
     text-align: center;
-    transition: opacity 1s;
+    transition: opacity .5s;
   }
 
   .insta-cover:hover{
