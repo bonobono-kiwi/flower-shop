@@ -18,6 +18,7 @@ html{
   margin:8vw auto auto 8vw;
 }
 
+
 #main-img-wrap{
   position:absolute;
   top:0;
@@ -423,6 +424,10 @@ footer h2{
 
 #copy-right{
   font-size:2vw;
+}
+
+#copy-right > p{
+  line-height:4vw;
 }
 
 #bottom-menu-wrap{
